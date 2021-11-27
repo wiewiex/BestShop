@@ -16,18 +16,20 @@ header {
 
 .header_container {
     width: 1352px;
+    height: 70px;
     margin: 0 auto;
     display: flex;
+    justify-content: space-between;
 }
 
 .logo_container {
-    width: 50%;
     display: flex;
     align-items: center;
 
 }
 
-.logo_container h1 {
+.logo_container a {
+    text-decoration: none;
     font-size: 32px;
     font-family: "Raleway";
     font-weight: normal;
@@ -35,7 +37,6 @@ header {
 }
 
 .menu_container {
-    width: 50%;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -54,5 +55,42 @@ header {
     font-family: "Open Sans";
     font-weight: bold;
     font-size: 11px;
-    color: var(--color-black)
+    color: var(--color-grey)
+}
+
+.menu_container div:hover a {
+    color: black;
+}
+
+main {
+    width: 100%;
+    height: calc(100vh - 70px);
+    background-image: url("../assets/Background.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main_title {
+    font-family: "Raleway";
+    font-size: 49px;
+    margin: 200px 0 0 0;
+}
+
+.main_description {
+    font-family: "Open Sans";
+    font-size: 16px;
+    margin: 20px 0 38px 0;
+}
+
+.main_cta {
+    text-decoration: none;
+    color: var(--color-white);
+    padding: 22px 157px;
+    background-color: var(--color-primary);
+    box-shadow: 5px 10px 14px #07ACE629;
+    border-radius: 40px;
 }
