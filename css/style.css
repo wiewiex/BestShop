@@ -7,11 +7,17 @@
     --color-grey: #A5A5A5;
     --color-light-grey: #F7F7F7;
     --color-white: #FFFFFF;
+    --font-raleway: "Raleway", sans-serif;
+    --font-open-sans: "Open Sans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
 }
 
 header {
     width: 100%;
-    box-shadow: 0px 3px 6px #00000029;;
+    box-shadow: 0 3px 6px #00000029;;
 }
 
 .header_container {
@@ -31,7 +37,7 @@ header {
 .logo_container a {
     text-decoration: none;
     font-size: 32px;
-    font-family: "Raleway";
+    font-family: var(--font-raleway);
     font-weight: normal;
     color: var(--color-primary);
 }
@@ -52,7 +58,7 @@ header {
 
 .menu_container div a {
     text-decoration: none;
-    font-family: "Open Sans";
+    font-family: var(--font-open-sans);
     font-weight: bold;
     font-size: 11px;
     color: var(--color-grey)
@@ -75,13 +81,13 @@ main {
 }
 
 .main_title {
-    font-family: "Raleway";
+    font-family: var(--font-raleway);
     font-size: 49px;
     margin: 200px 0 0 0;
 }
 
 .main_description {
-    font-family: "Open Sans";
+    font-family: var(--font-open-sans);
     font-size: 16px;
     margin: 20px 0 38px 0;
 }
@@ -94,3 +100,71 @@ main {
     box-shadow: 5px 10px 14px #07ACE629;
     border-radius: 40px;
 }
+
+#stats {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats_title {
+    font-family: var(--font-raleway);
+    font-size: 36px;
+    margin: 100px 0 0 0;
+}
+
+.stats_container {
+    width: 800px;
+    height: 300px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.stats_card {
+    flex-basis: 200px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.stats_circle {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    border-radius: 50%;
+}
+
+.stats_img {
+    position: absolute;
+    left: 50%;
+}
+
+.stats_number {
+    font-family: var(--font-raleway);
+    font-weight: 800;
+    font-size: 20px;
+    margin: 20px;
+
+}
+
+.stat_description {
+    color: var(--color-grey);
+    font-family: var(--font-raleway);
+    font-weight: normal;
+}
+
+.stats_card:nth-child(1) .stats_circle {
+    background-color: var(--color-redish);
+}
+
+.stats_card:nth-child(2) .stats_circle {
+    background-color: #08A6E4;
+}
+
+.stats_card:nth-child(3) .stats_circle {
+    background-color: var(--color-green);
+}
+
