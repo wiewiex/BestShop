@@ -325,6 +325,124 @@ main {
     height: 208px;
 }
 
+#prices {
+    width: 100%;
+    height: 700px;
+    background-color: var(--color-white) ;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+}
+
+.prices_title {
+    text-align: center;
+    margin: 100px 0 50px 0;
+    font-size: 36px;
+    font-family: var(--font-raleway);
+    font-weight: 500;
+    color: var(--color-black);
+
+}
+
+.prices_container {
+    width: 1266px;
+    height: 616px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.prices_container_card {
+    width: 372px;
+    height: 461px;
+    border: 1px solid #FB3B64;
+    padding: 30px 0 80px 0 ;
+    border-radius: 18px;
+    font-family: var(--font-open-sans);
+    font-size: 14px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
+}
+
+.package {
+    font-size: 20px;
+    font-family: var(--font-raleway);
+    font-weight: bold;
+}
+
+.price {
+    font-family: var(--font-open-sans);
+    font-weight: 300;
+    font-size: 46px;
+    color: var(--color-redish);
+}
+
+.limited_offer {
+    font-family: var(--font-raleway);
+    font-size: 12px;
+    padding: 0 0 30px 0;
+    font-weight: bold;
+    color: var(--color-black);
+}
+
+.begin_button {
+    position: absolute;
+    bottom: -25px;
+    text-decoration: none;
+    padding: 20px 50px;
+    background-color: var(--color-redish);
+    border-radius: 23px;
+    color: var(--color-white);
+}
+
+.hdd::before,
+.subdomain::before,
+.emails::before,
+.prices_container_card:nth-of-type(2) .license::before,
+.prices_container_card:nth-of-type(3) .license::before,
+.prices_container_card:nth-of-type(3) .support::before {
+    content: " ";
+    padding: 6px;
+    margin: 5px;
+    background-image: url("../assets/Ckechmark-1.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.prices_container_card:nth-of-type(1) .license::before,
+.prices_container_card:nth-of-type(1) .support::before,
+.prices_container_card:nth-of-type(2) .support::before {
+    content: " ";
+    padding: 6px;
+    margin: 5px;
+    background-image: url("../assets/Close.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.prices_container_card:nth-of-type(2) {
+    height: 500px;
+    width: 405px;
+    box-shadow: 5px 10px 27px #07ACE629;;
+    border: 1px solid var(--color-primary);
+    border-radius: 18px;
+}
+
+.prices_container_card:nth-of-type(2) .price {
+    color: #07ACE6;
+}
+
+.prices_container_card:nth-of-type(2) .begin_button {
+    background-color: #07ACE6;
+}
+
+
+
 
 
 
