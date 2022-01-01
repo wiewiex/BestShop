@@ -8,24 +8,27 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
+  @include mobile {
+    background-size: 200%;
+    padding: 30px;
+  }
 }
 
 .main_title {
   font-family: $font-raleway;
   font-size: 49px;
   margin: 200px 0 0 0;
-  @include tablet {
-    margin: 50px 0 0 0;
   }
-}
 
 .main_description {
   font-family: $font-open-sans;
   font-size: 16px;
   margin: 20px 0 38px 0;
+  text-align: center;
 }
 
 .main_cta {
+  text-align: center;
   text-decoration: none;
   color: $color-white;
   padding: 22px 157px;
@@ -34,4 +37,8 @@ main {
   border-radius: 40px;
   font-family: $font-open-sans;
   font-size: 16px;
+  @include mobile {
+    padding: 22px 50px;
+    width: 80vw;
+  }
 }

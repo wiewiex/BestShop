@@ -29,6 +29,7 @@ header {
   font-family: $font-raleway;
   font-weight: normal;
   color: $color-primary;
+  padding-left: 10px;
 }
 
 .menu_container {
@@ -72,6 +73,7 @@ header {
 .hamburger_menu {
   height: 1px;
   padding: 30px;
+  cursor: pointer;
   @include tablet {
     display: none;
   }
