@@ -723,10 +723,11 @@ main {
     flex-direction: column;
     align-items: center;
     height: 100%;
+    border: none;
   }
 }
 .benefits_container_block:last-of-type {
-  margin-bottom: 180px;
+  margin-bottom: 100px;
 }
 
 .block1_left {
@@ -740,7 +741,7 @@ main {
 @media screen and (max-width: 1360px) {
   .block1_left {
     width: 80%;
-    height: 20em;
+    height: 23em;
   }
 }
 
@@ -768,10 +769,11 @@ main {
 .benefits_description {
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
+  margin: 10px 0;
 }
 
 .benefits_line {
-  width: 327px;
+  width: 70%;
   height: 4px;
   background-color: #FB3B64;
 }
@@ -809,6 +811,7 @@ main {
     width: 80%;
     margin: 0 auto;
     align-items: center;
+    padding: 0;
   }
 }
 
@@ -822,9 +825,8 @@ main {
 }
 @media screen and (max-width: 1360px) {
   .block2_right {
-    padding: 0 50px 50px 50px;
     width: 80%;
-    height: 15em;
+    height: 25em;
   }
 }
 
@@ -865,7 +867,7 @@ main {
 @media screen and (max-width: 1360px) {
   .block3_left {
     width: 80%;
-    height: 20em;
+    height: 25em;
   }
 }
 
@@ -874,7 +876,7 @@ main {
 }
 
 .block3_right {
-  margin: 0 0 0 auto;
+  margin: 0 auto 0 auto;
   background-color: #55DFB4;
   width: 37%;
   border: 1px solid #E8E9ED;
@@ -897,7 +899,7 @@ main {
 
 #prices {
   width: 100%;
-  height: 800px;
+  margin: 50px 0;
   background-color: #FFFFFF;
   display: flex;
   justify-content: center;
@@ -910,14 +912,19 @@ main {
   font-family: "Raleway", sans-serif;
   font-weight: 500;
   color: #000000;
+  margin-bottom: 50px;
 }
 
 .prices_container {
   width: 1266px;
-  height: 616px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+@media screen and (max-width: 1360px) {
+  .prices_container {
+    flex-direction: column;
+  }
 }
 
 .prices_container_card {
@@ -934,6 +941,11 @@ main {
   justify-content: space-around;
   align-items: center;
   position: relative;
+}
+@media screen and (max-width: 1360px) {
+  .prices_container_card {
+    margin-bottom: 100px;
+  }
 }
 
 .package {

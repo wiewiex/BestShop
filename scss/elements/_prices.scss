@@ -1,6 +1,6 @@
 #prices {
   width: 100%;
-  height: 800px;
+  margin: 50px 0;
   background-color: $color-white;
   display: flex;
   justify-content: center;
@@ -13,15 +13,18 @@
   font-family: $font-raleway;
   font-weight: 500;
   color: $color-black;
+  margin-bottom: 50px;
 
 }
 
 .prices_container {
   width: 1266px;
-  height: 616px;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @include tablet {
+    flex-direction: column;
+  }
 }
 
 .prices_container_card {
@@ -38,6 +41,9 @@
   justify-content: space-around;
   align-items: center;
   position: relative;
+  @include tablet {
+    margin-bottom: 100px;
+  }
 }
 
 .package {
