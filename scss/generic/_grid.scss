@@ -1,0 +1,48 @@
+@use "sass:math";
+
+$maxWidth: 900px;
+$defaultPadding: 8px;
+$columns: 12;
+$colWidth: math.div(100%, $columns);
+
+@mixin tablet {
+  @media screen and (min-width: 500px) {
+    @content
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  max-width: $maxWidth;
+  margin: 0 auto;
+  min-height: 10px;
+  border: 1px solid red;
+}
+
+.row {
+  margin: $defaultPadding;
+  display: flex;
+  flex-wrap: wrap;
+  border: 1px solid blue;
+}
+
+[class ^= "col-"] {
+  width: 100%;
+  min-height: 50px;
+  margin: math.div($defaultPadding, 2);
+  background: rgba(255,0,255, 0.2);
+}
+@include tablet {
+  @for $i from 1 through $columns {
+    $width: $colWidth * $i;
+    .col-#{$i} {
+      width: $width - $defaultPadding;
+    }
+  }
+}
