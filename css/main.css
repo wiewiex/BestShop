@@ -623,7 +623,8 @@ main {
 .stats_title {
   font-family: "Raleway", sans-serif;
   font-size: 36px;
-  margin: 100px 0;
+  margin: 100px 15px;
+  text-align: center;
 }
 
 .stats_container {
@@ -631,6 +632,11 @@ main {
   display: flex;
   justify-content: space-around;
   margin: 0 0 100px 0;
+}
+@media screen and (max-width: 850px) {
+  .stats_container {
+    flex-direction: column;
+  }
 }
 
 .stats_card {

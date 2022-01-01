@@ -8,7 +8,8 @@
 .stats_title {
   font-family: $font-raleway;
   font-size: 36px;
-  margin: 100px 0;
+  margin: 100px 15px;
+  text-align: center;
 }
 
 .stats_container {
@@ -16,6 +17,9 @@
   display: flex;
   justify-content: space-around;
   margin: 0 0 100px 0;
+  @include mobile {
+    flex-direction: column;
+  }
 }
 
 .stats_card {
