@@ -72,6 +72,12 @@ header {
 .hamburger_menu {
   height: 1px;
   padding: 30px;
+  @include tablet {
+    display: none;
+  }
+  @include desktop {
+    display: none;
+  }
 
   & .hamburger_line {
     width: 20px;

@@ -453,7 +453,7 @@ header {
   display: flex;
   justify-content: space-between;
 }
-@media screen and (max-width: 1360px) {
+@media screen and (min-width: 850px) and (max-width: 1360px) {
   .header_container {
     width: 100%;
   }
@@ -521,6 +521,16 @@ header {
   height: 1px;
   padding: 30px;
 }
+@media screen and (min-width: 850px) and (max-width: 1360px) {
+  .hamburger_menu {
+    display: none;
+  }
+}
+@media screen and (min-width: 1360px) {
+  .hamburger_menu {
+    display: none;
+  }
+}
 .hamburger_menu .hamburger_line {
   width: 20px;
   height: 2px;
@@ -569,7 +579,7 @@ main {
   font-size: 49px;
   margin: 200px 0 0 0;
 }
-@media screen and (max-width: 1360px) {
+@media screen and (min-width: 850px) and (max-width: 1360px) {
   .main_title {
     margin: 50px 0 0 0;
   }
