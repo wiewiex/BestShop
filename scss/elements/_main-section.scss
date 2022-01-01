@@ -1,0 +1,37 @@
+main {
+  width: 100%;
+  height: calc(100vh - 70px);
+  background-image: url("/assets/Background.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: bottom;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.main_title {
+  font-family: $font-raleway;
+  font-size: 49px;
+  margin: 200px 0 0 0;
+  @include tablet {
+    margin: 50px 0 0 0;
+  }
+}
+
+.main_description {
+  font-family: $font-open-sans;
+  font-size: 16px;
+  margin: 20px 0 38px 0;
+}
+
+.main_cta {
+  text-decoration: none;
+  color: $color-white;
+  padding: 22px 157px;
+  background-color: $color-primary;
+  box-shadow: 5px 10px 14px #07ACE629;
+  border-radius: 40px;
+  font-family: $font-open-sans;
+  font-size: 16px;
+}

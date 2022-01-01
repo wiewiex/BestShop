@@ -42,7 +42,7 @@ $colWidth: math.div(100%, $columns);
   @for $i from 1 through $columns {
     $width: $colWidth * $i;
     .col-#{$i} {
-      width: $width - $defaultPadding;
+      width: calc($width - $defaultPadding);
     }
   }
 }
