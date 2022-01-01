@@ -74,12 +74,16 @@ header {
   height: 1px;
   padding: 30px;
   cursor: pointer;
-  @include tablet {
-    display: none;
-  }
   @include desktop {
     display: none;
   }
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: block;
+  }
+
 
   & .hamburger_line {
     width: 20px;

@@ -1,6 +1,5 @@
 #benefits {
   width: 100%;
-  height: 1395px;
   background-color: $color-light-grey ;
   display: flex;
   justify-content: center;
@@ -9,20 +8,30 @@
 
 .benefits_container {
   width: 1124px;
-  height: 90%;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
+  @include tablet {
+    width: 100%;
+  }
 }
 
 .benefits_container_block {
-  width: 100%;
+  margin-top: 100px;
   height: 370px;
   display: flex;
   justify-content: stretch;
   border: 1px solid #E8E9ED;
   border-radius: 5px;
+  @include tablet {
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    }
+  &:last-of-type {
+    margin-bottom: 180px;
+  }
 }
 
 .block1_left {
@@ -32,6 +41,10 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 50px 35px;
+  @include tablet {
+    width: 80%;
+    height: 20em;
+  }
 }
 
 .block1_right {
@@ -41,6 +54,11 @@
   display: flex;
   justify-content: center;
   align-items: end;
+  @include tablet {
+    width: 80%;
+    padding: 0 0 100px 0;
+    align-items: center;
+  }
 }
 
 .benefits_title {
@@ -88,6 +106,11 @@
   justify-content: space-around;
   padding: 50px 35px;
   position: relative;
+  @include tablet {
+    width: 80%;
+    margin: 0 auto;
+    align-items: center;
+  }
 }
 
 .block2_right {
@@ -97,6 +120,12 @@
   flex-direction: column;
   justify-content: space-around;
   padding: 50px;
+  @include tablet {
+    padding: 0 50px 50px 50px;
+    width: 80%;
+    height: 15em;
+
+  }
 }
 
 .iphone {
@@ -133,6 +162,10 @@
   justify-content: space-around;
   padding: 50px 35px;
   border: 1px solid #E8E9ED;
+  @include tablet {
+    width: 80%;
+    height: 20em;
+  }
 }
 
 .block3_left .benefits_line {
@@ -148,6 +181,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  @include tablet {
+    width: 80%;
+    margin: 0 auto;
+    height: 20em;
+  }
 }
 
 .trumpet {
