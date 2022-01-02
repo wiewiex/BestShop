@@ -936,16 +936,33 @@ main {
   font-family: "Open Sans", sans-serif;
   font-size: 14px;
   font-weight: 600;
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
-  position: relative;
 }
 @media screen and (max-width: 1360px) {
   .prices_container_card {
     margin-bottom: 100px;
   }
+}
+@media screen and (max-width: 850px) {
+  .prices_container_card {
+    width: 80vw;
+    padding: 0;
+    height: 350px;
+    flex-direction: row;
+  }
+}
+
+.prices_container_card_left_side-mobile, .prices_container_card_right_side-mobile {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+  height: 50%;
 }
 
 .package {
@@ -1010,6 +1027,12 @@ main {
   box-shadow: 5px 10px 27px #07ACE629;
   border: 1px solid #08A6E4;
   border-radius: 18px;
+}
+@media screen and (max-width: 850px) {
+  .prices_container_card:nth-of-type(2) {
+    width: 90vw;
+    height: 380px;
+  }
 }
 
 .prices_container_card:nth-of-type(2) .price {
