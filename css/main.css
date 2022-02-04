@@ -1144,8 +1144,18 @@ main {
 .calc__select.open .select__dropdown {
   display: block;
 }
+.calc .form__checkbox {
+  display: flex;
+  margin-bottom: 10px;
+}
+.calc .form__checkbox input {
+  display: none;
+}
 .calc .form__checkbox .consent__text {
   padding-top: 4px;
+  font-size: 12px;
+  font-family: "Open Sans", sans-serif;
+  color: #A5A5A5;
 }
 .calc__summary {
   width: 50%;

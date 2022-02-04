@@ -111,8 +111,16 @@
   }
 
   .form__checkbox {
+    display: flex;
+    margin-bottom: 10px;
+    input {
+      display: none;
+    }
     .consent__text {
       padding-top: 4px;
+      font-size: 12px;
+      font-family: $font-open-sans;
+      color: $color-grey;
     }
   }
 
