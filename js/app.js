@@ -14,6 +14,11 @@ function Calculator(form, summary) {
         products: form.querySelector("#products"),
         orders: form.querySelector("#orders"),
         package: form.querySelector("#package"),
+        typesOfPackage: {
+            basic: form.querySelector("#package .select__dropdown li:nth-of-type(1)"),
+            professional: form.querySelector("#package .select__dropdown li:nth-of-type(2)"),
+            premium: form.querySelector("#package .select__dropdown li:nth-of-type(3)")
+        },
         accounting: form.querySelector("#accounting"),
         terminal: form.querySelector("#terminal")
     };
@@ -33,13 +38,19 @@ function Calculator(form, summary) {
 Calculator.prototype.showGreenCalc = function (event) {
     const id = event.target.id;
     const value = event.target.value;
-    console.log(event.target)
 
     if ((value && event.target.type !== "checkbox") || (event.target.checked && event.target.type === "checkbox"))  {
         this.summary.list.querySelector("[data-id=" + id + "]").classList.add("open");
     }
     else {this.summary.list.querySelector("[data-id=" + id + "]").classList.remove("open");}
+}
 
+Calculator.prototype.showCustomSelect = function (event) {
+    this.form.package.classList.toggle("open");
+}
+Calculator.prototype.selectValue = function (event) {
+    event.target.parentElement.parentElement.dataset.value = event.target.dataset.value;
+    this.form.package.querySelector(".select__input").innerText = event.target.innerText;
 }
 
 
@@ -50,6 +61,11 @@ Calculator.prototype.addEvents = function () {
     this.form.orders.addEventListener("keyup", this.showGreenCalc.bind(this));
     this.form.accounting.addEventListener("change", this.showGreenCalc.bind(this));
     this.form.terminal.addEventListener("change", this.showGreenCalc.bind(this));
+
+    this.form.package.addEventListener("click", this.showCustomSelect.bind(this));
+    this.form.typesOfPackage.basic.addEventListener("click", this.selectValue.bind(this));
+    this.form.typesOfPackage.professional.addEventListener("click", this.selectValue.bind(this));
+    this.form.typesOfPackage.premium.addEventListener("click", this.selectValue.bind(this));
 }
 
 
