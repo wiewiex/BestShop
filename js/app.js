@@ -33,7 +33,6 @@ function Calculator(form, summary) {
     this.addEvents()
 }
 
-
 Calculator.prototype.showGreenCalc = function (event) {
     if ((event.target.value && event.target.type !== "checkbox") || (event.target.checked && event.target.type === "checkbox"))  {
         this.summary.list.querySelector("[data-id=" + event.target.id + "]").classList.add("open");
@@ -59,12 +58,11 @@ Calculator.prototype.showTotalPrice = function () {
 Calculator.prototype.textInputCallback = function (event) {
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__calc").innerText = event.target.value + " * " + "$" + this.prices[event.target.id];
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__price").innerText = "$" + event.target.value * this.prices[event.target.id];
-
     if (event.target.id === "products") {
-        this.summary.countedPrices.splice(0, 1, event.target.value * this.prices[event.target.id]);
+        this.summary.countedPrices[0] = event.target.value * this.prices[event.target.id];
     }
     else {
-        this.summary.countedPrices.splice(1, 1, event.target.value * this.prices[event.target.id]);
+        this.summary.countedPrices[1] = event.target.value * this.prices[event.target.id];
     }
     this.showGreenCalc(event);
 }
@@ -73,10 +71,10 @@ Calculator.prototype.checkboxCallback = function (event) {
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__price").innerText = "$" + this.prices[event.target.id];
 
     if (event.target.id === "accounting") {
-        this.summary.countedPrices.splice(2, 1, this.prices[event.target.id]);
+        this.summary.countedPrices[2] = this.summary.countedPrices[2] ? 0 : 35
     }
     else {
-        this.summary.countedPrices.splice(3, 1, this.prices[event.target.id]);
+        this.summary.countedPrices[3] = this.summary.countedPrices[3] ? 0 : 5
     }
     this.showGreenCalc(event);
 }
@@ -90,9 +88,10 @@ Calculator.prototype.selectValue = function (event) {
     this.summary.list.querySelector('[data-id="package"]').classList.add("open");
     this.summary.list.querySelector('[data-id="package"]').querySelector(".item__calc").innerText = event.target.innerText;
     this.summary.list.querySelector('[data-id="package"]').querySelector(".item__price").innerText = "$" + this.prices.package[event.target.dataset.value];
-    this.summary.countedPrices.splice(4, 1, this.prices.package[event.target.dataset.value]);
+    this.summary.countedPrices[4] = this.prices.package[event.target.dataset.value]
     this.showTotalPrice();
 }
+
 
 
 Calculator.prototype.addEvents = function () {
