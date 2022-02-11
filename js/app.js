@@ -24,11 +24,10 @@ function Calculator(form, summary) {
     };
     this.summary = {
         list: summary.querySelector("ul"),
-        items: summary.querySelector("ul").children,
+        countedPrices: [0, 0, 0, 0, 0],
         total: {
             container: summary.querySelector("#total-price"),
             price: summary.querySelector(".total__price"),
-            pricesArray: []
         }
     };
     this.addEvents()
@@ -41,11 +40,15 @@ Calculator.prototype.showGreenCalc = function (event) {
     }
     else {this.summary.list.querySelector("[data-id=" + event.target.id + "]").classList.remove("open");
     }
-    this.showTotalPrice(event);
+    this.showTotalPrice();
 }
 
-Calculator.prototype.showTotalPrice = function (event) {
-    if ((event.target.value && event.target.type !== "checkbox") || (event.target.checked && event.target.type === "checkbox"))  {
+Calculator.prototype.showTotalPrice = function () {
+    this.summary.total.price.innerText = "$" + this.summary.countedPrices.reduce(function (total,item){
+        return total + item;
+    })
+    const visibleCalc = document.querySelector(".list__item.open");
+    if (visibleCalc) {
         this.summary.total.container.classList.add("open");
     }
     else {this.summary.total.container.classList.remove("open");
@@ -54,15 +57,28 @@ Calculator.prototype.showTotalPrice = function (event) {
 
 
 Calculator.prototype.textInputCallback = function (event) {
-    this.showGreenCalc(event);
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__calc").innerText = event.target.value + " * " + "$" + this.prices[event.target.id];
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__price").innerText = "$" + event.target.value * this.prices[event.target.id];
 
+    if (event.target.id === "products") {
+        this.summary.countedPrices.splice(0, 1, event.target.value * this.prices[event.target.id]);
+    }
+    else {
+        this.summary.countedPrices.splice(1, 1, event.target.value * this.prices[event.target.id]);
+    }
+    this.showGreenCalc(event);
 }
 
 Calculator.prototype.checkboxCallback = function (event) {
-    this.showGreenCalc(event);
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__price").innerText = "$" + this.prices[event.target.id];
+
+    if (event.target.id === "accounting") {
+        this.summary.countedPrices.splice(2, 1, this.prices[event.target.id]);
+    }
+    else {
+        this.summary.countedPrices.splice(3, 1, this.prices[event.target.id]);
+    }
+    this.showGreenCalc(event);
 }
 
 Calculator.prototype.showCustomSelect = function (event) {
@@ -73,11 +89,10 @@ Calculator.prototype.selectValue = function (event) {
     this.form.package.querySelector(".select__input").innerText = event.target.innerText;
     this.summary.list.querySelector('[data-id="package"]').classList.add("open");
     this.summary.list.querySelector('[data-id="package"]').querySelector(".item__calc").innerText = event.target.innerText;
-    this.summary.list.querySelector('[data-id="package"]').querySelector(".item__price").innerText = `$${this.prices.package[event.target.dataset.value]}`;
+    this.summary.list.querySelector('[data-id="package"]').querySelector(".item__price").innerText = "$" + this.prices.package[event.target.dataset.value];
+    this.summary.countedPrices.splice(4, 1, this.prices.package[event.target.dataset.value]);
+    this.showTotalPrice();
 }
-
-
-
 
 
 Calculator.prototype.addEvents = function () {
