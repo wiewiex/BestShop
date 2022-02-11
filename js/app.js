@@ -27,10 +27,10 @@ function Calculator(form, summary) {
         items: summary.querySelector("ul").children,
         total: {
             container: summary.querySelector("#total-price"),
-            price: summary.querySelector(".total__price")
+            price: summary.querySelector(".total__price"),
+            pricesArray: []
         }
     };
-
     this.addEvents()
 }
 
@@ -39,8 +39,19 @@ Calculator.prototype.showGreenCalc = function (event) {
     if ((event.target.value && event.target.type !== "checkbox") || (event.target.checked && event.target.type === "checkbox"))  {
         this.summary.list.querySelector("[data-id=" + event.target.id + "]").classList.add("open");
     }
-    else {this.summary.list.querySelector("[data-id=" + event.target.id + "]").classList.remove("open");}
+    else {this.summary.list.querySelector("[data-id=" + event.target.id + "]").classList.remove("open");
+    }
+    this.showTotalPrice(event);
 }
+
+Calculator.prototype.showTotalPrice = function (event) {
+    if ((event.target.value && event.target.type !== "checkbox") || (event.target.checked && event.target.type === "checkbox"))  {
+        this.summary.total.container.classList.add("open");
+    }
+    else {this.summary.total.container.classList.remove("open");
+    }
+}
+
 
 Calculator.prototype.textInputCallback = function (event) {
     this.showGreenCalc(event);
@@ -52,8 +63,6 @@ Calculator.prototype.textInputCallback = function (event) {
 Calculator.prototype.checkboxCallback = function (event) {
     this.showGreenCalc(event);
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__price").innerText = "$" + this.prices[event.target.id];
-
-
 }
 
 Calculator.prototype.showCustomSelect = function (event) {
@@ -64,8 +73,9 @@ Calculator.prototype.selectValue = function (event) {
     this.form.package.querySelector(".select__input").innerText = event.target.innerText;
     this.summary.list.querySelector('[data-id="package"]').classList.add("open");
     this.summary.list.querySelector('[data-id="package"]').querySelector(".item__calc").innerText = event.target.innerText;
-    this.summary.list.querySelector('[data-id="package"]').querySelector(".item__price").innerText = `$ ${this.prices.package[event.target.dataset.value]}`;
+    this.summary.list.querySelector('[data-id="package"]').querySelector(".item__price").innerText = `$${this.prices.package[event.target.dataset.value]}`;
 }
+
 
 
 
@@ -77,7 +87,6 @@ Calculator.prototype.addEvents = function () {
     this.form.orders.addEventListener("keyup", this.textInputCallback.bind(this));
     this.form.accounting.addEventListener("change", this.checkboxCallback.bind(this));
     this.form.terminal.addEventListener("change", this.checkboxCallback.bind(this));
-
     this.form.package.addEventListener("click", this.showCustomSelect.bind(this));
     this.form.typesOfPackage.basic.addEventListener("click", this.selectValue.bind(this));
     this.form.typesOfPackage.professional.addEventListener("click", this.selectValue.bind(this));

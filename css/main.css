@@ -1045,6 +1045,19 @@ main {
   background-color: #07ACE6;
 }
 
+.prices_container_card:nth-of-type(3) {
+  border: 1px solid #55DFB4;
+  border-radius: 18px;
+}
+
+.prices_container_card:nth-of-type(3) .price {
+  color: #55DFB4;
+}
+
+.prices_container_card:nth-of-type(3) .begin_button {
+  background-color: #55DFB4;
+}
+
 .calc {
   padding: 80px 0;
   background-color: #F7F7F7;
