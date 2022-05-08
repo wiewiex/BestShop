@@ -572,7 +572,7 @@ header {
 main {
   width: 100%;
   height: calc(100vh - 70px);
-  background-image: url("/assets/Background.png");
+  background-image: url("../assets/Background.png");
   background-repeat: no-repeat;
   background-size: contain;
   background-position: bottom;
@@ -1007,7 +1007,7 @@ main {
   content: " ";
   padding: 6px;
   margin: 5px;
-  background-image: url("/assets/Ckechmark-1.svg");
+  background-image: url("../assets/Ckechmark-1.svg");
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -1018,7 +1018,7 @@ main {
   content: " ";
   padding: 6px;
   margin: 5px;
-  background-image: url("/assets/Close.svg");
+  background-image: url("../assets/Close.svg");
   background-position: center;
   background-repeat: no-repeat;
 }
@@ -1319,7 +1319,7 @@ main {
 }
 
 .custom_checkbox:checked + span {
-  background-image: url("/assets/Checkmark.svg");
+  background-image: url("../assets/Checkmark.svg");
   background-size: 10px;
   background-position: center;
   background-repeat: no-repeat;

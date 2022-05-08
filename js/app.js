@@ -71,11 +71,12 @@ Calculator.prototype.checkboxCallback = function (event) {
     this.summary.list.querySelector("[data-id=" + event.target.id + "]").querySelector(".item__price").innerText = "$" + this.prices[event.target.id];
 
     if (event.target.id === "accounting") {
-        this.summary.countedPrices[2] = this.summary.countedPrices[2] ? 0 : 35
+        this.summary.countedPrices[2] = this.summary.countedPrices[2] ? 0 : this.prices.accounting
     }
     else {
-        this.summary.countedPrices[3] = this.summary.countedPrices[3] ? 0 : 5
+        this.summary.countedPrices[3] = this.summary.countedPrices[3] ? 0 : this.prices.terminal
     }
+    console.log(this.summary.countedPrices);
     this.showGreenCalc(event);
 }
 
